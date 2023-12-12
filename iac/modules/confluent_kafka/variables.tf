@@ -4,3 +4,11 @@ variable "confluent_cloud_api_key" {
 variable "confluent_cloud_api_secret" {
   default = ""
 }
+
+variable "cloud" {
+  default = "AWS"
+}
+
+variable "region" {
+  default = "us-east-2"
+}

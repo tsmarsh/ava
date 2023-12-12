@@ -24,8 +24,8 @@ resource "confluent_environment" "development" {
 resource "confluent_kafka_cluster" "basic" {
   display_name = "basic_kafka_cluster"
   availability = "SINGLE_ZONE"
-  cloud        = "AWS"
-  region       = "us-east-2"
+  cloud        = var.cloud
+  region       = var.region
   basic {}
 
   environment {

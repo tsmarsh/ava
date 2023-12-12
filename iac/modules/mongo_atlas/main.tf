@@ -13,17 +13,17 @@ provider "mongodbatlas" {
 }
 
 resource "mongodbatlas_project" "ava_project" {
-  name   = "ava"
+  name   = var.atlas_project_name
   org_id = var.atlas_org
 }
 
 resource "mongodbatlas_cluster" "cluster" {
   project_id   = mongodbatlas_project.ava_project.id
   name         = var.atlas_cluster_name
-  disk_size_gb = 10
 
-  provider_name               = "AWS"
-  provider_region_name        = var.aws_region
+  provider_name               = "TENANT"
+  backing_provider_name = var.cloud
+  provider_region_name        = "US_EAST_1"
   provider_instance_size_name = "M0"
   backup_enabled              = false
 }

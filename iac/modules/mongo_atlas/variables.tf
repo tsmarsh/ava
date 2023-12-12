@@ -9,6 +9,9 @@ variable "atlas_org" {
   default = "BlackShapes International"
 }
 
+variable "atlas_project_name" {
+  default = ""
+}
 variable "mongo_username" {
   default = "ava_test"
 }
@@ -16,7 +19,11 @@ variable "mongo_password" {
   default = "ava2929!!"
 }
 
-variable "aws_region" {
+variable "cloud" {
+  default = "AWS"
+}
+
+variable "region" {
   default = "us-east-2"
 }
 

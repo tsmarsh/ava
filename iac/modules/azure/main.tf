@@ -10,13 +10,13 @@ resource "azurerm_network_security_group" "ava" {
 }
 
 resource "azurerm_network_security_rule" "ava" {
-  name                        = "HTTPS"
+  name                        = "HTTP"
   priority                    = 100
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_range      = "443"
+  destination_port_range      = "3000"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.ava.name
@@ -69,7 +69,7 @@ resource "azurerm_container_group" "ava" {
 
   container {
     name   = "telegram"
-    image  = "tsmarsh/ava-telegram:0.0.1"
+    image  = "tsmarsh/ava-telegram:0.0.2"
     cpu    = "0.5"
     memory = "1.5"
 

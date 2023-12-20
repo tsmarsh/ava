@@ -22,7 +22,7 @@ resource "azurerm_cosmosdb_account" "ava" {
   }
 
   consistency_policy {
-    consistency_level       = "Session"
+    consistency_level = "Session"
   }
 
   geo_location {
@@ -32,5 +32,5 @@ resource "azurerm_cosmosdb_account" "ava" {
 }
 
 output "connection_string" {
-  value =  azurerm_cosmosdb_account.ava.connection_strings[0]
+  value = azurerm_cosmosdb_account.ava.connection_strings[0]
 }

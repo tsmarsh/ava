@@ -22,7 +22,7 @@ output "security_group" {
 }
 
 output "resource_group" {
-  value = azurerm_network_security_group.ava.name
+  value = azurerm_resource_group.ava.name
 }
 
 output "location" {

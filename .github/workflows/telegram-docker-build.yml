@@ -45,12 +45,7 @@ jobs:
           git config --global user.email 'td.build@tailoredshapes.com'
           git add ./iac/environments/dev/main.tf
           git commit -m "Update Docker image tag in Terraform to ${{ github.run_id }}"
-
-      - name: Push Changes
-        uses: ad-m/github-push-action@v0.8.0
-        with:
-          github_token: ${{ secrets.REPO_PAT }}
-          branch: main
+          git push
 
 
 

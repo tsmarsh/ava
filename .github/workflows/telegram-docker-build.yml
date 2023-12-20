@@ -10,6 +10,10 @@ on:
 
 jobs:
   build-and-push:
+    permissions:
+      id-token: write
+      contents: write
+
     runs-on: ubuntu-latest
 
     steps:
@@ -48,7 +52,7 @@ jobs:
           git config --global user.email 'td.build@tailoredshapes.com'
           git add ./iac/environments/dev/main.tf
           git commit -m "Update Docker image tag in Terraform to ${{ github.run_id }}"
-          git push https://${{ secrets.REPO_PAT }}@github.com/${{ github.repository }}
+          git push
 
 
 

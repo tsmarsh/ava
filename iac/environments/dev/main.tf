@@ -18,7 +18,7 @@ module "queue" {
 
 module "containers" {
   depends_on = [module.infra, module.database]
-  source = "../../modules/aci"
+  source = "../../modules/azure_container"
   connection_string = module.database.connection_string
   image = "tsmarsh/ava-telegram:0.0.2"
   resource_group = module.infra.resource_group

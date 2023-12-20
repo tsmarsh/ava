@@ -43,7 +43,7 @@ jobs:
 
       - name: Update Terraform Configuration
         run: |
-          sed -i "s|${{ secrets.DOCKERHUB_USER }}/ava-telegram:.*|${{ secrets.DOCKERHUB_USER }}/ava-telegram:${{ github.run_id }}|" main.tf
+          sed -i "s|${{ secrets.DOCKERHUB_USER }}/ava-telegram:.*|${{ secrets.DOCKERHUB_USER }}/ava-telegram:${{ github.run_id }}\"|" main.tf
         working-directory: ./iac/environments/dev
 
       - name: Commit Terraform Changes

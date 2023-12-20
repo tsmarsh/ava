@@ -1,46 +1,57 @@
-provider "azurerm" {
-  features {}
+variable "location" {}
+
+variable "resource_group" {}
+
+variable "connection_string" {}
+
+variable "security_group" {}
+
+variable "image" {}
+
+variable "cpu" {
+  default = "0.5"
 }
 
-resource "azurerm_resource_group" "ava_rg" {
-  name     = "aciResourceGroup"
-  location = var.aci_region
+variable "memory" {
+  default = "1.5"
 }
 
-resource "azurerm_container_group" "ava_cg" {
-  name                = "avaContainerGroup"
-  location            = azurerm_resource_group.ava_rg.location
-  resource_group_name = azurerm_resource_group.ava_rg.name
+resource "azurerm_container_group" "ava" {
+  name                = "ava-containergroup"
+  location            = var.location
+  resource_group_name = var.resource_group
   os_type             = "Linux"
 
   container {
-    name   = var.docker_name
-    image  = var.docker_image
-    cpu    = var.aci_cpu
-    memory = var.aci_memory
+    name   = "telegram"
+    image  = "tsmarsh/ava-telegram:0.0.2"
+    cpu    = "0.5"
+    memory = "1.5"
 
     ports {
-
-      port     = var.docker_port
+      port     = 3000
       protocol = "TCP"
     }
 
     environment_variables = {
-      MONGO_URI = var.mongo_url
+      "MONGO_URI" = var.connection_string
     }
   }
 
-  ip_address {
-    type = "Public"
-    ports {
-      port     = var.host_port
-      protocol = "TCP"
-    }
-  }
-
-  tags = {
-    environment = "testing"
-  }
+  ip_address_type = "Public"
+  dns_name_label  = "ava-telegram"
 }
 
-# Add any additional configurations as needed
+resource "azurerm_network_security_rule" "ava" {
+  name                        = "HTTP"
+  priority                    = 100
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "3000"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name         = var.resource_group
+  network_security_group_name = var.security_group
+}

@@ -20,7 +20,7 @@ module "containers" {
   depends_on = [module.infra, module.database]
   source = "../../modules/azure_container"
   connection_string = module.database.connection_string
-  image = "tsmarsh/ava-telegram:0.0.2"
+  image = "tsmarsh/ava-telegram:7281926550
   resource_group = module.infra.resource_group
   security_group = module.infra.security_group
   location = module.infra.location

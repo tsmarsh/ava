@@ -1,0 +1,207 @@
+{
+  "sender_chat": {
+    "type": "object",
+    "id": "urn:jsonschema:model:Chat",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "Private",
+          "group",
+          "supergroup",
+          "channel"
+        ]
+      },
+      "title": {
+        "type": "string"
+      },
+      "username": {
+        "type": "string"
+      },
+      "first_name": {
+        "type": "string"
+      },
+      "last_name": {
+        "type": "string"
+      },
+      "is_forum": {
+        "type": "boolean"
+      },
+      "photo": {
+        "type": "object",
+        "id": "urn:jsonschema:model:ChatPhoto",
+        "properties": {
+          "small_file_id": {
+            "type": "string"
+          },
+          "small_file_unique_id": {
+            "type": "string"
+          },
+          "big_file_id": {
+            "type": "string"
+          },
+          "big_file_unique_id": {
+            "type": "string"
+          }
+        }
+      },
+      "active_usernames": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "emoji_status_custom_emoji_id": {
+        "type": "string"
+      },
+      "emoji_status_expiration_date": {
+        "type": "integer"
+      },
+      "bio": {
+        "type": "string"
+      },
+      "has_public_forwards": {
+        "type": "boolean"
+      },
+      "has_restricted_voice_and_video_messages": {
+        "type": "boolean"
+      },
+      "has_hidden_members": {
+        "type": "boolean"
+      },
+      "has_aggressive_anti_spam_enabled": {
+        "type": "boolean"
+      },
+      "join_to_send_messages": {
+        "type": "boolean"
+      },
+      "join_by_request": {
+        "type": "boolean"
+      },
+      "description": {
+        "type": "string"
+      },
+      "invite_link": {
+        "type": "string"
+      },
+      "pinned_message": {
+        "type": "object",
+        "$ref": "urn:jsonschema:model:Message"
+      },
+      "permissions": {
+        "type": "object",
+        "id": "urn:jsonschema:model:ChatPermissions",
+        "properties": {
+          "can_send_messages": {
+            "type": "boolean"
+          },
+          "can_send_audios": {
+            "type": "boolean"
+          },
+          "can_send_documents": {
+            "type": "boolean"
+          },
+          "can_send_photos": {
+            "type": "boolean"
+          },
+          "can_send_videos": {
+            "type": "boolean"
+          },
+          "can_send_video_notes": {
+            "type": "boolean"
+          },
+          "can_send_voice_notes": {
+            "type": "boolean"
+          },
+          "can_send_polls": {
+            "type": "boolean"
+          },
+          "can_send_other_messages": {
+            "type": "boolean"
+          },
+          "can_add_web_page_previews": {
+            "type": "boolean"
+          },
+          "can_change_info": {
+            "type": "boolean"
+          },
+          "can_invite_users": {
+            "type": "boolean"
+          },
+          "can_pin_messages": {
+            "type": "boolean"
+          },
+          "can_manage_topics": {
+            "type": "boolean"
+          }
+        }
+      },
+      "slow_mode_delay": {
+        "type": "integer"
+      },
+      "message_auto_delete_time": {
+        "type": "integer"
+      },
+      "has_protected_content": {
+        "type": "boolean"
+      },
+      "sticker_set_name": {
+        "type": "string"
+      },
+      "can_set_sticker_set": {
+        "type": "boolean"
+      },
+      "linked_chat_id": {
+        "type": "integer"
+      },
+      "location": {
+        "type": "object",
+        "id": "urn:jsonschema:model:ChatLocation",
+        "properties": {
+          "location": {
+            "type": "object",
+            "id": "urn:jsonschema:model:Location",
+            "properties": {
+              "longitude": {
+                "type": "number"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "horizontal_accuracy": {
+                "type": "number"
+              },
+              "live_period": {
+                "type": "integer"
+              },
+              "heading": {
+                "type": "integer"
+              },
+              "proximity_alert_radius": {
+                "type": "integer"
+              }
+            }
+          },
+          "address": {
+            "type": "string"
+          }
+        }
+      },
+      "emojiStatusCustomEmojiId": {
+        "type": "string"
+      },
+      "activeUsernames": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "forum": {
+        "type": "boolean"
+      }
+    }
+  }
+}

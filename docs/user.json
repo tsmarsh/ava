@@ -1,0 +1,43 @@
+{
+      "id": {
+        "type": "integer"
+      },
+      "is_bot": {
+        "type": "boolean"
+      },
+      "first_name": {
+        "type": "string"
+      },
+      "last_name": {
+        "type": "string"
+      },
+      "username": {
+        "type": "string"
+      },
+      "language_code": {
+        "type": "string"
+      },
+      "is_premium": {
+        "type": "boolean"
+      },
+      "added_to_attachment_menu": {
+        "type": "boolean"
+      },
+      "can_join_groups": {
+        "type": "boolean"
+      },
+      "can_read_all_group_messages": {
+        "type": "boolean"
+      },
+      "supports_inline_queries": {
+        "type": "boolean"
+      },
+      "bot": {
+        "type": "boolean"
+      },
+      "premium": {
+        "type": "boolean"
+      }
+    }
+  }
+}

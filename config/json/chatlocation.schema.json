@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "chat_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "horizontal_accuracy": {
+      "type": "number"
+    },
+    "live_period": {
+      "type": "integer"
+    },
+    "heading": {
+      "type": "integer"
+    },
+    "proximity_alert_radius": {
+      "type": "integer"
+    }
+  }
+}

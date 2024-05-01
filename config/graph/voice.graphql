@@ -1,0 +1,121 @@
+scalar Date
+
+type User {
+  telegramId: Int
+  is_bot: Boolean
+  first_name: String
+  last_name: String
+  username: String
+  language_code: String
+  is_premium: Boolean
+  id: ID
+  messages: [Message]
+}
+
+type Message {
+  telegramId: Int
+  messageThread: Int
+  date: String
+  chat: Chat
+  text: String
+  user: User
+  id: ID
+  documents: [Document]
+  audio: [Audio]
+  responses: [Response]
+}
+
+type Audio {
+  message: Message
+  fileId: String
+  duration: Int
+  performer: String
+  title: String
+  file_name: String
+  mime_type: String
+  id: ID
+}
+
+type Document {
+  message: Message
+  fileId: String
+  file_uniqueId: String
+  file_name: String
+  mime_type: String
+  file_size: Int
+  id: ID
+}
+
+type Query {
+  getById(id: ID, at: Float): Voice
+  getByMessage(id: ID, at: Float): [Voice]
+}
+
+type Voice {
+  message: Message
+  fileId: String
+  file_uniqueId: String
+  duration: Int
+  mime_type: String
+  file_size: Int
+  id: ID
+}
+
+type Chat {
+  telegramId: Int
+  title: String
+  bio: String
+  description: String
+  id: ID
+  messages: [Message]
+  chatLocations: [ChatLocation]
+  chatPermissions: [ChatPermissions]
+}
+
+type ChatPermissions {
+  can_send_messages: Boolean
+  can_send_audios: Boolean
+  cand_send_documents: Boolean
+  can_send_photos: Boolean
+  can_send_video_notes: Boolean
+  can_send_voice_notes: Boolean
+  can_send_polls: Boolean
+  can_send_other_messages: Boolean
+  can_add_web_page_previews: Boolean
+  can_change_info: Boolean
+  can_invite_users: Boolean
+  can_pin_messages: Boolean
+  can_manage_topics: Boolean
+  chat: Chat
+  id: ID
+}
+
+type ChatLocation {
+  chat: Chat
+  longitude: Float
+  latitude: Float
+  horizontal_accuracy: Float
+  live_period: Int
+  heading: Int
+  proximity_alert_radius: Int
+  id: ID
+}
+
+type Fact {
+  question: String
+  answer: String
+  id: ID
+}
+
+type Response {
+  message: Message
+  test: String
+  id: ID
+}
+
+type Prompt {
+  message: Message
+  role: String
+  prompt: String
+  id: ID
+}
